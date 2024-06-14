@@ -16,7 +16,7 @@ def gradient_descent(A, b, alpha, num_iterations, regularization=None, delta2=0)
 
     for i in range(num_iterations):
         if regularization == 'L2':
-            grad = gradient(A, x, b) + 2 * delta2 * x
+            grad = gradient(A, x, b) + 2 * delta2 * x 
         else:
             grad = gradient(A, x, b)
 
@@ -30,9 +30,9 @@ n = 5
 d = 100
 A = np.random.rand(n, d)
 b = np.random.rand(n)
-U, s, Vt = np.linalg.svd(A, full_matrices=False)
-sigma_max = np.max(s)
-lambda_max = np.max(np.linalg.eigvals(2 * A.T @ A))
+U, S, Vt = np.linalg.svd(A, full_matrices=False)
+sigma_max = np.max(S)
+lambda_max = np.max(np.linalg.eigvals(2 * A.T @ A)) #¿Chequeado que es es el Hessiano?
 alpha = 1 / lambda_max
 num_iterations = 1000
 delta2 = 10**(-2) * sigma_max
